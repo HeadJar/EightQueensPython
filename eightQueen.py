@@ -29,7 +29,7 @@ class gameState(object):
     #This returns the state of the board
     def get(self,x,y):
         return self.board[x][y]
-    #
+    #Goes through the board and places queens
     def solve(self):
         for x in range(NUMQUEENS):
             for y in range(NUMQUEENS):
@@ -56,7 +56,7 @@ class gameState(object):
             if x+ i in range(NUMQUEENS) and y-i in range(NUMQUEENS) and not self.board[x+i][y-i] :
                 self.board[x+i][y-i] = -1
 
-
+#Copy Possible solution
     def copy(self):
         s= gameState()
         s.board = copy.deepcopy(self.board)
@@ -72,8 +72,8 @@ def solve(state=gameState()):
         if solution not in (set):
             set[str(state)] = None
 
-            print ('Solution ', NUM +'\n' + solution + '\n\n')
-            NUM = NUM + 1
+            print ('Solution ', NUM ,'\n' + solution + '\n\n')
+            NUM +=1
     else:  # Time to recurse
         for x in range(NUMQUEENS):
             for y in range(NUMQUEENS):
@@ -86,13 +86,13 @@ start_time = time.time()
 
 solve(gameState())
 
-"""
+
 for solution in set.keys():
 
     print('Solution', NUM)
     print (solution + '\n\n')
-    NUM = NUM + 1
-"""
+    NUM += 1
+
 print ('%d unique solutions found.' + len(set.keys()))
 
 print ('Elapsed time: %.3fs' + (time.time() - start_time))
