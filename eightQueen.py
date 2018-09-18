@@ -71,8 +71,8 @@ def solve(state=gameState()):
         solution = str(state)
         if solution not in (set):
             set[str(state)] = None
-            print('Solution' , NUM)
-            print (solution + '\n\n')
+
+            print ('Solution ', NUM +'\n' + solution + '\n\n')
             NUM = NUM + 1
     else:  # Time to recurse
         for x in range(NUMQUEENS):
@@ -86,13 +86,13 @@ start_time = time.time()
 
 solve(gameState())
 
-
+"""
 for solution in set.keys():
 
     print('Solution', NUM)
     print (solution + '\n\n')
     NUM = NUM + 1
-
+"""
 print ('%d unique solutions found.' + len(set.keys()))
 
 print ('Elapsed time: %.3fs' + (time.time() - start_time))
