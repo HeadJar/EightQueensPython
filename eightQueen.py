@@ -36,3 +36,11 @@ class gameState(object):
                 self.board[i][y] = -1
             if not self.board[x][i]:
                 self.board[x][i] = -1
+            if x+i in range(NUMQUEENS) and y+i in range(NUMQUEENS) and not self.board[x+i][y+i] :
+                self.board[x+i][y+i] = -1
+            if x-i in range(NUMQUEENS) and y-i in range(NUMQUEENS) and not self.board[x-i][y-i] :
+                self.board[x-i][y-i] = -1
+            if x-i in range(NUMQUEENS) and y+i in range(NUMQUEENS) and not self.board[x-i][y+i] :
+                self.board[x-i][y+i] = -1
+            if x+ i in range(NUMQUEENS) and y-i in range(NUMQUEENS) and not self.board[x+i][y-i] :
+                self.board[x+i][y-i] = -1
